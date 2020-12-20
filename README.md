@@ -41,7 +41,7 @@
 ![](http://tu.yaohuo.me/imgs/2020/06/34ca160c972b9927.png)
 
 ## 四、查看运行结果
-Actions > Cloud189Checkin > build  
+Actions > glados-checkin > build  
 能看到如下图所示，表示成功，或者看你微信通知  
 ![](http://tu.yaohuo.me/imgs/2020/06/289432b53bded61c.png)  
   
