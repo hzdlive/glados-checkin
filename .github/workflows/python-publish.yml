@@ -2,9 +2,8 @@ name: glados-checkin
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
   schedule:
     - cron:  0 16 * * * 
 
