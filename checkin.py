@@ -30,7 +30,7 @@ def start():
     state =  requests.get(url2,headers={'cookie': cookie ,'referer': referer,'origin':origin,'user-agent':useragent})
     try:
         pcstate =  requests.get(url3,headers={'cookie': pccookie ,'referer': referer2,'origin':origin2,'user-agent':useragent})
-        print(pcstate.text)
+        #print(pcstate.text)
     except:
         print("网络请求异常,为避免GitHub action报错,直接跳过")
         return
