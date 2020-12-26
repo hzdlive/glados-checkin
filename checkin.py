@@ -30,6 +30,7 @@ def start():
     state =  requests.get(url2,headers={'cookie': cookie ,'referer': referer,'origin':origin,'user-agent':useragent})
     pcstate =  requests.get(url3,headers={'cookie': pccookie ,'referer': referer2,'origin':origin2,'user-agent':useragent})
    # print(res)
+    print(pcstate)
 
     if 'message' in checkin.text:
         mess = checkin.json()['message']
