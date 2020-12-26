@@ -28,9 +28,13 @@ def start():
     }
     checkin = requests.post(url,headers={'cookie': cookie ,'referer': referer,'origin':origin,'user-agent':useragent,'content-type':'application/json;charset=UTF-8'},data=json.dumps(payload))
     state =  requests.get(url2,headers={'cookie': cookie ,'referer': referer,'origin':origin,'user-agent':useragent})
-    pcstate =  requests.get(url3,headers={'cookie': pccookie ,'referer': referer2,'origin':origin2,'user-agent':useragent})
+    try:
+        pcstate =  requests.get(url3,headers={'cookie': pccookie ,'referer': referer2,'origin':origin2,'user-agent':useragent})
+        print(pcstate.text)
+    except:
+        print("网络请求异常,为避免GitHub action报错,直接跳过")
+        return
    # print(res)
-    print(pcstate)
 
     if 'message' in checkin.text:
         mess = checkin.json()['message']
