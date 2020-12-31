@@ -29,3 +29,4 @@ jobs:
         SCKEY: ${{ secrets.SCKEY }}
         COOKIE: ${{ secrets.COOKIE }}
         PCBETA: ${{ secrets.PCBETA }}
+        CHIPHELL: ${{ secrets.CHIPHELL }}
