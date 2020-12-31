@@ -43,7 +43,7 @@ def start():
 
     try:
         chiphellstate =  requests.get(url4,headers={'cookie': chiphell ,'referer': referer3,'origin':origin3,'user-agent':useragent})
-        # print(chiphellstate.text)
+        print(chiphellstate.text)
     except:
         print("网络请求异常,为避免GitHub action报错,直接跳过")
         return
