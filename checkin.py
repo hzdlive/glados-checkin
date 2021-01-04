@@ -20,7 +20,7 @@ def start():
     url2= "https://glados.rocks/api/user/status"
     origin = "https://glados.rocks"
     referer = "https://glados.rocks/console/checkin"
-    #url3= "http://i.pcbeta.com/home.php?mod=task&do=apply&id=149"
+    url30= "http://i.pcbeta.com/home.php?mod=task&do=apply&id=149"
     url3= "http://i.pcbeta.com/home.php?mod=task&do=draw&id=149"
     origin2 = "http://bbs.pcbeta.com"
     referer2 = "http://bbs.pcbeta.com"
@@ -34,8 +34,14 @@ def start():
     checkin = requests.post(url,headers={'cookie': cookie ,'referer': referer,'origin':origin,'user-agent':useragent,'content-type':'application/json;charset=UTF-8'},data=json.dumps(payload))
     state =  requests.get(url2,headers={'cookie': cookie ,'referer': referer,'origin':origin,'user-agent':useragent})
     try:
+        pcstate =  requests.get(url30,headers={'cookie': pccookie ,'referer': referer2,'origin':origin2,'user-agent':useragent})
+        #print(pcstate.text)
+    except:
+        print("网络请求异常,为避免GitHub action报错,直接跳过")
+        return
+    try:
         pcstate =  requests.get(url3,headers={'cookie': pccookie ,'referer': referer2,'origin':origin2,'user-agent':useragent})
-        print(pcstate.text)
+        #print(pcstate.text)
     except:
         print("网络请求异常,为避免GitHub action报错,直接跳过")
         return
