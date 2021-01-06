@@ -9,6 +9,8 @@ sckey = os.environ["SCKEY"]
 cookie = os.environ["COOKIE"]
 pccookie = os.environ["PCBETA"]
 chiphell = os.environ["CHIPHELL"]
+kafan = os.environ["KAFAN"]
+right = os.environ["RIGHT"]
 #'__cfduid=d3459ec306384ca67a65170f8e2a5bd************; _ga=GA1.2.766373509.1593*****72; _gid=GA1.2.1338236108.***********72; koa:sess=eyJ1c2VySW*********************aXJlIjoxNjE4OTY5NTI4MzY4LCJfbWF4QWdl****0=; koa:sess.sig=6qG8SyMh*****LBc9yRviaPvI'
 
 
@@ -27,6 +29,8 @@ def start():
     origin3 = "https://www.chiphell.com/"
     referer3 = "https://www.chiphell.com/"
     url4= "https://www.chiphell.com/forum.php?gid=186"
+    url_kafan= "https://bbs.kafan.cn/plugin.php?id=dsu_amupper&ppersubmit=true&formhash=9817d60b"
+    url_right= "https://www.right.com.cn/forum/forum.php"
     useragent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36"
     payload={
         'token': 'glados_network'
@@ -49,6 +53,22 @@ def start():
 
     try:
         chiphellstate =  requests.get(url4,headers={'cookie': chiphell ,'referer': referer3,'origin':origin3,'user-agent':useragent})
+        # print(chiphellstate.text)
+    except:
+        print("网络请求异常,为避免GitHub action报错,直接跳过")
+        return
+   # print(res)
+
+    try:
+        kafanstate =  requests.get(url_kafan,headers={'cookie': kafan ,'referer': "",'origin':"",'user-agent':useragent})
+        # print(chiphellstate.text)
+    except:
+        print("网络请求异常,为避免GitHub action报错,直接跳过")
+        return
+   # print(res)
+
+    try:
+        rightstate =  requests.get(url_right,headers={'cookie': right ,'referer': "",'origin':"",'user-agent':useragent})
         # print(chiphellstate.text)
     except:
         print("网络请求异常,为避免GitHub action报错,直接跳过")
